@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <style>
+        .box{
+            width: 250px;
+            height: 400px;
+            background-color: white;
+            padding: 40px;
+            margin: auto;
+            box-shadow: 0px 0px 5px 5px rgb(226, 225, 225);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+    <h1>Calculate BMI</h1>
+    <form action="">
+        <input type="range" name="" id="weight" min="0" max="100" onclick="weightt(this)" value="0">
+        
+    </form>
+    <h4>Weight:<span id="value"></span></h4>
+    <form action="">
+        <input type="range" name="" id="height" min="0" max="200" onclick="weightt(this)" value="0">
+    </form>
+    <h4>Height:<span id="heightval"></span></h4>
+    <h3>Your BMI:<span id="tot"></span></h3>
+</div>
+    <script>
+        function weightt(){
+        var slide=document.getElementById("weight").value;
+        document.getElementById("value").innerHTML=slide+"  kg";
+        var heightslide=document.getElementById("height").value;
+        document.getElementById("heightval").innerHTML=heightslide+"  cm";
+        var total=((slide)/(heightslide**2))*10000;
+        document.getElementById("tot").innerHTML=total;
+        }
+    </script>
+</body>
+</html>
