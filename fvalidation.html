@@ -1,0 +1,114 @@
+ <html>
+<body>
+<form name="myform" action="next.php" method="post" onsubmit="return f1()">
+<table>
+<tr>
+<td>name</td>
+<td><input type="text" id="uname"></td>
+</tr>
+<tr>
+<td>password</td>
+<td><input type="password" id="pass"></td>
+</tr>
+<tr>
+<td>mobile number</td>
+<td><input type="text" id="mnumber"></td>
+</tr>
+<tr>
+<td>email</td>
+<td><input type="text" id="email"></td>
+</tr>
+<tr>
+<td>gender</td>
+<td><input type="radio" id="gen" name="gen" value="male">male <input type="radio" id="gen" name="gen" value="female">female</td>
+</tr>
+<tr>
+<td>language</td>
+<td><input type="checkbox" id="lan" name="lan" value="english">english <input type="checkbox" id="lan" name="lan" value="tamil">tamil</td>
+</tr>
+<tr>
+<td>comment</td>
+<td><textarea cols="30" rows="5" id="comment"></textarea></td>
+</tr>
+<tr>
+<td> </td>
+<td><input type="submit" value="ok"> </td>
+</table>
+</form>
+<script>
+function f1()
+{
+var name=document.getElementById("uname").value;
+var pass=document.getElementById("pass").value;
+var mobile=document.getElementById("mnumber").value;
+var email=document.getElementById("email").value;
+var comment=document.getElementById("comment").value;
+var regemail=/^[A-Za-z0-9]+[@]+[A-Za-z]+[.]+[A-Za-z]+$/;
+var err="";
+var regex =/^[A-Z a-z]+$/;
+var regmobile =/^[0-9]+$/;
+if(name.length==0)
+{
+err=err+"please enter the name"+"\n";
+}
+if(name.length>=1)
+  {
+  if(!(name.match(regex)))
+  {
+  err=err+"please enter the name string only"+"\n";
+  
+  
+    }
+	
+  }
+  if(pass.length==0)
+{
+err=err+"please enter the password"+"\n";
+}
+ if(mobile.length==0)
+{
+err=err+"please enter the mobile number"+"\n";
+}
+if(mobile.length>=1)
+  {
+  if(!(mobile.match(regmobile)))
+  {
+  err=err+"please enter the mobile number  only"+"\n";
+  
+  
+    }
+	
+  }
+  if(email.length==0)
+{
+err=err+"please enter the email "+"\n";
+}
+if(email.length>=1)
+  {
+  if(!(email.match(regemail)))
+  {
+  err=err+"please enter the email  only"+"\n";
+  
+  
+    }
+	
+  }
+  if(document.myform.gen[0].checked == false && document.myform.gen[1].checked == false) {
+  err=err+"please select the gender"+"\n";
+  }
+  if(document.myform.lan[0].checked == false && document.myform.lan[1].checked == false) {
+  err=err+"please select the language"+"\n";
+  }
+  if(comment.length==0)
+{
+err=err+"please enter the comment "+"\n";
+}
+  if(err.length>=1)
+  {
+  alert(err);
+  return false;
+  }
+
+}
+</script>
+</body>
